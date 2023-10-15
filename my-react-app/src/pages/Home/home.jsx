@@ -3,6 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import './home.css';
+import cancel from '../../images/icons8-cancel-48.png';
+import addi from '../../images/icons8-add-note-96.png';
+import ellipsis from '../../images/icons8-more-64.png';
+import editpencil from '../../images/icons8-pencil-64.png';
+import bin from '../../images/icons8-delete-48.png';
 
 const Test = () => {
   const [title, setTitle] = useState('');
@@ -108,7 +113,6 @@ const Test = () => {
     }
   };
 
- 
   return (
     <div className="bg-blue-300 border-yellow-300 border-4 h-auto sm:border-black sm:border-10">
       <div
@@ -121,7 +125,7 @@ const Test = () => {
             <p>Add a New Note</p>
             <img
               className=" close-icon cursor-pointer w-8 text-gray-500"
-              src="../src/images/icons8-cancel-48.png"
+              src={cancel}
               alt=""
               onClick={() => {
                 oncloseIconClick();
@@ -169,11 +173,11 @@ const Test = () => {
       </div>
       <button
         type="button"
-        className="border-2 border-blue-400 bg-black text-blue-400  w-[10%] text-center sm:float-right  p-4 "
+        className="sm:border-2 border-blue-400 bg-black text-blue-400  sm:w-[10%] text-center sm:float-right  p-4 w-50%"
       >
         <Link to="/">Sign-out</Link>
       </button>
-      <div className="p-8 list-none grid grid-cols-2 grid-rows-3 gap-10 ">
+      <div className="p-8 list-none sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-10  ">
         <li
           className="add-box bg-white h-72 rounded-md px-5 py-4 flex justify-center items-center flex-col gap-8 sm:gap-2"
           onClick={() => {
@@ -181,11 +185,7 @@ const Test = () => {
           }}
         >
           <div className=" rounded-full border-blue-300 border-dashed border-8 cursor-pointer ">
-            <img
-              className="p-4"
-              src="../src/images/icons8-add-note-96.png"
-              alt=""
-            />
+            <img className="p-4" src={addi} alt="" />
           </div>
           <p className="text-blue-300 text-3xl italic sm:oblique">
             Add new note
@@ -205,7 +205,7 @@ const Test = () => {
                       <p>Edit this note</p>
                       <img
                         className=" close-icon cursor-pointer w-8 text-gray-500"
-                        src="../src/images/icons8-cancel-48.png"
+                        src={cancel}
                         alt=""
                         onClick={() => {
                           oncloseEditIconClick();
@@ -263,25 +263,21 @@ const Test = () => {
                 <div className="flex justify-between py-8 ">
                   <span className=" font-medium text-gray-700 border-t-4 border-yellow-300 sm:border-b-4 sm:border-blue-300"></span>
                   <div className="settings relative cursor-pointer">
-                    <img
-                      className="w-10"
-                      src="../src/images/icons8-more-64.png"
-                      alt=" "
-                    />
+                    <img className="w-10" src={ellipsis} alt=" " />
                     <ul className="menu sm:flex sm:flex-row absolute bottom-0 py-1 px-0 bg-white rounded scale-0 origin-bottom-right hover:bg-blue-200 sm:py-6 -right-1 shadow-black shadow transition-transform duration-300 ease-in-out hover:scale-100">
                       <li
                         onClick={() => {
                           onEditIconClick(index);
                         }}
                       >
-                        <img src="../src/images/icons8-pencil-64.png" alt="" />
+                        <img src={editpencil} alt="" />
                       </li>
                       <li
                         onClick={() => {
                           onDeleteButtonClick(index);
                         }}
                       >
-                        <img src="../src/images/icons8-delete-48.png" alt="" />
+                        <img src={bin} alt="" />
                       </li>
                     </ul>
                   </div>

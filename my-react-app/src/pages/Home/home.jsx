@@ -9,7 +9,7 @@ import ellipsis from '../../images/icons8-more-64.png';
 import editpencil from '../../images/icons8-pencil-64.png';
 import bin from '../../images/icons8-delete-48.png';
 
-const Test = () => {
+const Home = () => {
   const [title, setTitle] = useState('');
   const [editIndex, setEditIndex] = useState(null);
   const [description, setDescription] = useState('');
@@ -291,4 +291,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Home;

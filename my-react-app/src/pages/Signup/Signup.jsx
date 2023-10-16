@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import {
+  confirmPasswordReset,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
@@ -23,6 +24,10 @@ const Signup = () => {
     });
   };
   const signUp = async (e) => {
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
     e.preventDefault();
     try {
       const userCred = await createUserWithEmailAndPassword(
@@ -42,9 +47,10 @@ const Signup = () => {
 
       navigate('/');
     } catch (error) {
-      console.log(error);
-      alert('Fill all inputs correctly...');
+      console.error(error);
+      alert('An error occurred while creating your account.');
     }
+  
   };
 
   return (
@@ -83,12 +89,14 @@ const Signup = () => {
                   />
                 </div>
                 <div className="tracking-wider">
-                  <label htmlFor="Password">Confirm Password:</label>
+                  <label htmlFor="confirmPassword">Confirm Password:</label>
                   <input
                     className="border-4 border-black rounded-3xl p-2"
                     type="password"
-                    name="password"
+                    name="confirmPassword"
                     placeholder=" Confirm Key"
+                    value={confirmPassword}
+                    onChange={handleChange}
                   />
                 </div>
               </div>

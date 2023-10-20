@@ -43,7 +43,7 @@ const Signup = () => {
       navigate('/');
     } catch (error) {
       console.log(error);
-      alert('Fill all inputs correctly...');
+      alert('Password too weak...');
     }
   };
 

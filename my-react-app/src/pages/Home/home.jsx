@@ -68,6 +68,10 @@ const Home = () => {
     }
   };
 
+  const getNotes = () => {
+    
+  }
+
   useEffect(() => {
     const tempUser = localStorage.getItem('user');
 

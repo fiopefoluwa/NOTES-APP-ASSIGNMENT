@@ -82,15 +82,7 @@ const Signup = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="tracking-wider">
-                  <label htmlFor="Password">Confirm Password:</label>
-                  <input
-                    className="border-4 border-black rounded-3xl p-2"
-                    type="password"
-                    name="password"
-                    placeholder=" Confirm Key"
-                  />
-                </div>
+                
               </div>
               <div className="flex flex-col ">
                 <div className="pl-39 pt-10">
